@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const authRoutes = require("./authRoutes");
 
 const searchRoutes = require("./searchRoutes");
 const secondChanceItemsRoutes = require("./secondChanceItemsRoutes");
@@ -8,6 +9,7 @@ app.use(express.json());
 
 app.use("/api/secondchance/search", searchRoutes);
 app.use("/api/secondchance/items", secondChanceItemsRoutes);
+app.use("/api/secondchance/auth", authRoutes);
 
 app.get("/", (req, res) => {
     res.send("Welcome to SecondChance");
